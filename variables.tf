@@ -3,18 +3,6 @@ variable "region" {
   type        = string
 }
 
-variable "aws_access_key" {
-  description = "The Access Key that will be used to deploy AWS resources"
-  type        = string
-  sensitive   = true
-}
-
-variable "aws_secret_key" {
-  description = "The Secret Key that will be used to deploy AWS resources"
-  type        = string
-  sensitive   = true
-}
-
 variable "key_pair_name" {
   description = "The name of the existing EC2 Key pair that will be used to authenticate to the nios device"
   type        = string

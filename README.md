@@ -78,8 +78,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_aws_access_key"></a> [aws\_access\_key](#input\_aws\_access\_key) | The Access Key that will be used to deploy AWS resources | `string` | n/a | yes |
-| <a name="input_aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | The Secret Key that will be used to deploy AWS resources | `string` | n/a | yes |
 | <a name="input_boot_disk_size"></a> [boot\_disk\_size](#input\_boot\_disk\_size) | The boot disk size for the nios device | `number` | `250` | no |
 | <a name="input_create_iam"></a> [create\_iam](#input\_create\_iam) | Create IAM Service Account, Roles, and Role Bindings for NIOS | `bool` | `"false"` | no |
 | <a name="input_create_networking"></a> [create\_networking](#input\_create\_networking) | This variable controls the VPC and subnet creation for the nios device. When set to false the custom-vpc-name and custom-subnetwork-name must be set. | `bool` | `"true"` | no |
