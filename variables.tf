@@ -49,6 +49,12 @@ variable "nios_cidr_block" {
   default     = "10.255.0.0/16"
 }
 
+variable "allowed_cidr_blocks" {
+  description = "A list of allowed CIDR blocks for ingress traffic to the VM(s)"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
 variable "create_iam" {
   description = "Create IAM Service Account, Roles, and Role Bindings for NIOS"
   type        = bool
