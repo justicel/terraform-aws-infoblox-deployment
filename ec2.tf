@@ -22,6 +22,9 @@ resource "aws_instance" "nios" {
   root_block_device {
     volume_size           = var.boot_disk_size
     delete_on_termination = true
+    # There's no good reason to not have encryption by default at this point
+    encrypted  = true
+    kms_key_id = var.encryption_key_id
   }
   instance_type = local.nios_vm_model[var.nios_vm_model]
   key_name      = var.key_pair_name
@@ -37,16 +40,17 @@ resource "aws_instance" "nios" {
   tags = {
     Name = "${var.name_prefix}-infoblox-nios"
   }
-  user_data = <<EOF
-#infoblox-config
-remote_console_enabled: y
-default_admin_password: "${var.device_password}"
-temp_license: enterprise dns dhcp rpz cloud cloud_api nios "${local.nios_license[var.nios_vm_model]}"
-EOF
+  user_data = <<-EOF
+    #infoblox-config
+    remote_console_enabled: y
+    default_admin_password: "${var.device_password}"
+    temp_license: enterprise dns dhcp rpz cloud cloud_api nios "${local.nios_license[var.nios_vm_model]}"
+    EOF
   lifecycle {
     ignore_changes = [tags]
   }
 }
+
 resource "aws_ec2_tag" "custom_tags" {
   for_each    = var.custom_tags
   resource_id = aws_instance.nios.id

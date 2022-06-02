@@ -3,15 +3,18 @@ resource "aws_network_interface" "first" {
   subnet_id       = var.create_networking ? aws_subnet.nios_mgmt[0].id : var.custom_subnet_ids[0]
   security_groups = [aws_security_group.nios_sg.id]
 }
+
 resource "aws_network_interface" "second" {
   subnet_id       = var.create_networking ? aws_subnet.nios_lan[0].id : var.custom_subnet_ids[1]
   security_groups = [aws_security_group.nios_sg.id]
 }
+
 resource "aws_eip" "mgmt" {
   count             = var.public_address ? 1 : 0
   vpc               = true
   network_interface = aws_network_interface.second.id
 }
+
 resource "aws_vpc" "nios" {
   count      = var.create_networking ? 1 : 0
   cidr_block = var.nios_cidr_block
