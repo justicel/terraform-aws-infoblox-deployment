@@ -1,6 +1,6 @@
 output "nios_public_address" {
   description = "Public IP Addresses for the NIOS Device"
-  value       = aws_eip.mgmt[0].public_ip
+  value       = join("", aws_eip.mgmt[*].public_ip)
 }
 
 output "nios_private_address" {
