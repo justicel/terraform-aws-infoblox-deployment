@@ -70,7 +70,7 @@ resource "aws_security_group" "nios_sg" {
     cidr_blocks = var.allowed_cidr_blocks
   }
 
-  tags = {
+  tags = merge({
     Name = "${var.name_prefix}-nios-sg"
-  }
+  }, var.custom_tags)
 }
