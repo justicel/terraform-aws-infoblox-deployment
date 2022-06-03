@@ -39,6 +39,29 @@ resource "aws_security_group" "nios_sg" {
     cidr_blocks = var.allowed_cidr_blocks
   }
 
+  # Traffic allowed in from other grid members
+  ingress {
+    description = "NIOS Grid traffic"
+    from_port   = 1194
+    to_port     = 1194
+    protocol    = "udp"
+    cidr_blocks = var.grid_cidr_blocks
+  }
+  ingress {
+    description = "NIOS Grid traffic 2"
+    from_port   = 2114
+    to_port     = 2114
+    protocol    = "udp"
+    cidr_blocks = var.grid_cidr_blocks
+  }
+  ingress {
+    description = "Infoblox AWS API Proxy"
+    from_port   = 8787
+    to_port     = 8787
+    protocol    = "tcp"
+    cidr_blocks = var.grid_cidr_blocks
+  }
+
   egress {
     description = "Allow traffic from VPC"
     from_port   = 0

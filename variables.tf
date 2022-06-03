@@ -55,6 +55,12 @@ variable "allowed_cidr_blocks" {
   default     = ["0.0.0.0/0"]
 }
 
+variable "grid_cidr_blocks" {
+  description = "A list of allowed CIDR blocks for NIOS grid communication"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}
+
 variable "create_iam" {
   description = "Create IAM Service Account, Roles, and Role Bindings for NIOS"
   type        = bool
