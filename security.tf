@@ -63,11 +63,27 @@ resource "aws_security_group" "nios_sg" {
   }
 
   egress {
-    description = "Allow traffic from VPC"
+    description = "Allow DNS traffic from VPC"
+    from_port   = 53
+    to_port     = 53
+    protocol    = "TCP"
+    cidr_blocks = var.allowed_egress_cidr_blocks
+  }
+
+  egress {
+    description = "Allow DNS UDP traffic from VPC"
+    from_port   = 53
+    to_port     = 53
+    protocol    = "UDP"
+    cidr_blocks = var.allowed_egress_cidr_blocks
+  }
+
+  egress {
+    description = "Allow all traffic from VPC"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_egress_cidr_blocks
+    cidr_blocks = var.allowed_cidr_blocks
   }
 
   tags = merge({
