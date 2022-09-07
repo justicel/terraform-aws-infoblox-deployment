@@ -67,7 +67,7 @@ resource "aws_security_group" "nios_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = var.allowed_cidr_blocks
+    cidr_blocks = var.allowed_egress_cidr_blocks
   }
 
   tags = merge({
