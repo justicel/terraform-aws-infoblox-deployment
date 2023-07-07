@@ -18,7 +18,7 @@ resource "aws_iam_instance_profile" "nios" {
 }
 
 resource "aws_instance" "nios" {
-  ami = data.aws_ami.nios.id
+  ami = var.ami_id != null ? var.ami_id : data.aws_ami.nios.id
   root_block_device {
     volume_size           = var.boot_disk_size
     delete_on_termination = true

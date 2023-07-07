@@ -14,6 +14,12 @@ variable "nios_version" {
   default     = "8.6.2"
 }
 
+variable "ami_id" {
+  description = "Override the selector for AMI ID. Useful to force a specific version, avoid upgrades, etc."
+  type        = string
+  default     = null
+}
+
 variable "name_prefix" {
   description = "This prefix is appended to the names of the device and SEs"
   type        = string
