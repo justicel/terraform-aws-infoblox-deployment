@@ -95,7 +95,7 @@ No modules.
 | <a name="input_key_pair_name"></a> [key\_pair\_name](#input\_key\_pair\_name) | The name of the existing EC2 Key pair that will be used to authenticate to the nios device | `string` | n/a | yes |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | This prefix is appended to the names of the device and SEs | `string` | n/a | yes |
 | <a name="input_nios_cidr_block"></a> [nios\_cidr\_block](#input\_nios\_cidr\_block) | The CIDR that will be used for creating a subnet in the VPC when create\_network=true - a /16 should be provided | `string` | `"10.255.0.0/16"` | no |
-| <a name="input_nios_version"></a> [nios\_version](#input\_nios\_version) | The nios device version that will be deployed | `string` | `"8.5.2"` | no |
+| <a name="input_nios_version"></a> [nios\_version](#input\_nios\_version) | The nios device version that will be deployed | `string` | `"8.6.2"` | no |
 | <a name="input_nios_vm_model"></a> [nios\_vm\_model](#input\_nios\_vm\_model) | The NIOS VM Model used for the deployment. https://docs.infoblox.com/display/NAIG/Infoblox+vNIOS+for+AWS+AMI+Shapes+and+Regions | `string` | `"TE-V825"` | no |
 | <a name="input_public_address"></a> [public\_address](#input\_public\_address) | This variable controls if the device has a Public IP Address. When set to false the Ansible provisioner will connect to the private IP of the device. | `bool` | `"true"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The Region that the nios device and SEs will be deployed to | `string` | n/a | yes |

@@ -11,7 +11,7 @@ variable "key_pair_name" {
 variable "nios_version" {
   description = "The nios device version that will be deployed"
   type        = string
-  default     = "8.5.2"
+  default     = "8.6.2"
 }
 
 variable "name_prefix" {

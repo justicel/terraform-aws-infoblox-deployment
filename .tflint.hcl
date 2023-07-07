@@ -6,7 +6,7 @@ plugin "aws" {
   enabled = true
   deep_check = false
   source = "github.com/terraform-linters/tflint-ruleset-aws"
-  version = "0.13.2"
+  version = "0.24.1"
 }
 
 rule "terraform_unused_declarations" {
